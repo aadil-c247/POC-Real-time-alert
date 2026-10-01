@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: realtime-alert-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: realtime_alert
+      POSTGRES_USER: alert_user
+      POSTGRES_PASSWORD: alert_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
